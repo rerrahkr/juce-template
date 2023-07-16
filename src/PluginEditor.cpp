@@ -3,8 +3,7 @@
 #include "PluginProcessor.h"
 
 //==============================================================================
-AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor(
-    AudioPluginAudioProcessor &p)
+PluginEditor::PluginEditor(PluginProcessor& p)
     : AudioProcessorEditor(&p), processorRef(p) {
   juce::ignoreUnused(processorRef);
   // Make sure that before the constructor has finished, you've set the
@@ -12,10 +11,10 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor(
   setSize(400, 300);
 }
 
-AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor() {}
+PluginEditor::~PluginEditor() {}
 
 //==============================================================================
-void AudioPluginAudioProcessorEditor::paint(juce::Graphics &g) {
+void PluginEditor::paint(juce::Graphics& g) {
   // (Our component is opaque, so we must completely fill the background with a
   // solid colour)
   g.fillAll(
@@ -27,7 +26,7 @@ void AudioPluginAudioProcessorEditor::paint(juce::Graphics &g) {
                    juce::Justification::centred, 1);
 }
 
-void AudioPluginAudioProcessorEditor::resized() {
+void PluginEditor::resized() {
   // This is generally where you'll want to lay out the positions of any
   // subcomponents in your editor..
 }
